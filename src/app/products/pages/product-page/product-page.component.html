@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="display-1">Agregar Porducto</h1>
+  <small class="text-body-secondary">With faded secondary text</small>
+  <hr />
+
+  <form [formGroup]="myForm" action="">
+    <div class="row g-3 align-items-center mb-3 ml-3">
+      <div class="col-auto">
+        <label>Nombre:</label>
+      </div>
+
+      <div class="col-auto">
+        <input formControlName="name" type="text" class="form-control" />
+      </div>
+
+      <div class="col-auto">
+        <h1 class="display-1" customLabel [color]="color">Grunge</h1>
+        <span customLabel [color]="color" [errors]="myForm.get('name')?.errors"
+          >Temporal</span
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button (click)="changeColor()" class="btn btn-primary">
+          Cambiar Color
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <pre class="mt-5">{{ myForm.get("name")?.errors | json }}</pre>
+  <p>Color: {{ color }}</p>
+</div>
